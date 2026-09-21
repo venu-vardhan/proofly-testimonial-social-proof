@@ -1,0 +1,4 @@
+const API = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+async function request(path, options = {}) { const isForm = options.body instanceof FormData; const res = await fetch(`${API}${path}`, { credentials:'include', ...options, headers:{ ...(isForm?{}:{'Content-Type':'application/json'}), ...(options.headers||{}) } }); const data=await res.json().catch(()=>({})); if(!res.ok){const e=new Error(data.message||'Something went wrong');e.status=res.status;throw e;} return data; }
+export async function api(path, options={}){try{return await request(path,options)}catch(error){if(error.status===401&&path!=='/auth/refresh'&&!path.startsWith('/auth/')){try{await request('/auth/refresh',{method:'POST'});return await request(path,options)}catch{}}throw error}}
+export { API };
