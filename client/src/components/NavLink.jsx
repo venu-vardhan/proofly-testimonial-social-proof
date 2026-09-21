@@ -1,0 +1,1 @@
+export function Link({to,className='',children,...props}){return <a href={to} className={className} {...props}>{children}</a>}
