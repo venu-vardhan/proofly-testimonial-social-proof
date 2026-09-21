@@ -1,0 +1,14 @@
+{
+  "name": "testimonial-social-proof-collector",
+  "private": true,
+  "version": "1.0.0",
+  "description": "MERN implementation of the Testimonial & Social Proof Collector assessment project.",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server start",
+    "seed": "npm --prefix server run seed"
+  },
+  "devDependencies": { "concurrently": "^9.2.1" }
+}
