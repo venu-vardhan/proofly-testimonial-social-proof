@@ -1,0 +1,3 @@
+import { Sparkles, ArrowRight } from 'lucide-react';
+import { Link } from './NavLink';
+export default function Layout({children,user,onLogout}){return <><header className="site-header"><Link to="/" className="brand"><span className="brand-mark"><Sparkles/></span><span>Proofly</span></Link><nav>{user?<><Link to="/dashboard">Dashboard</Link><button className="nav-btn" onClick={onLogout}>Log out</button></>:<><Link to="/login">Sign in</Link><Link to="/signup" className="nav-cta">Start collecting <ArrowRight/></Link></>}</nav></header><main>{children}</main><footer className="footer"><span>Proofly</span><span>Customer stories, beautifully collected.</span><span>Built for the MERN assessment.</span></footer></>}
