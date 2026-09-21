@@ -1,0 +1,2 @@
+import { Star } from 'lucide-react';
+export default function Stars({value=5,onChange,interactive=false}){return <div className="stars" aria-label={`${value} out of 5 stars`}>{[1,2,3,4,5].map(i=><button key={i} type="button" disabled={!interactive} onClick={()=>onChange?.(i)} className={i<=value?'star active':'star'}><Star fill={i<=value?'currentColor':'none'}/></button>)}</div>}
