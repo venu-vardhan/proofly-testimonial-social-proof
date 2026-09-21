@@ -8,8 +8,9 @@ Professional MERN implementation of **Project 05 — Testimonial & Social Proof 
 - React + Vite
 - JWT access/refresh authentication with httpOnly cookies
 - Multer image uploads
+- Tailwind CSS v4
+- Coss UI registry primitives
 - Responsive animated UI
-- UI primitives isolated for the required Coss UI integration
 
 ## Core workflow
 1. Owner creates an account and signs in.
@@ -29,6 +30,16 @@ npm run dev
 ```
 
 The frontend runs on `http://localhost:5173` and the API on `http://localhost:4000`.
+
+### Coss UI setup
+The frontend is configured for the official Coss registry. From `client/`:
+
+```bash
+npm install
+npm run ui:sync
+```
+
+The project keeps Coss registry source under `client/src/registry/default/ui/` and uses a compatibility facade so feature pages consume the shared primitives consistently.
 
 ### Optional demo seed
 Set a local `DEMO_PASSWORD` environment variable and run:
@@ -52,5 +63,5 @@ The interface is intentionally professional and product-oriented: responsive lay
 ## Assessment alignment
 The supplied assessment requires the selected project to implement its core requirements, use MERN or Python, provide a working frontend/backend where applicable, store and retrieve data appropriately, implement APIs/business logic, handle validation/errors, maintain clean structure, document external libraries/services, and submit a public Git repository. This repository is organized around those requirements.
 
-## Coss UI note
-Project 05 explicitly requires interface components using `coss.com/ui` primitives. The current source isolates reusable UI primitives under `client/src/components/ui.jsx`; `docs/COSS-UI.md` records the exact final registry integration step so the repository does not falsely represent a local approximation as the official Coss source.
+## Coss UI
+Project 05 explicitly requires interface components using `coss.com/ui` primitives. Proofly uses the Coss UI registry source for its shared Button, Card, Badge, Input, Textarea and Spinner primitives, with Tailwind CSS v4 and semantic Coss design tokens. The project also contains `client/components.json` pointing at the official `@coss` registry.
