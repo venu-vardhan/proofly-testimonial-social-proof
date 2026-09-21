@@ -1,11 +1,33 @@
-# Coss UI Integration Note
+# Coss UI Integration
 
-The supplied Project 05 brief requires interface components to use `coss.com/ui` primitives.
+Project 05 explicitly requires all interface components to use `coss.com/ui` primitives.
 
-Official references:
+## Official references
 - https://coss.com/ui
 - https://coss.com/ui/docs/get-started
+- https://coss.com/ui/docs/styling
+- Registry: https://coss.com/ui/r/{name}.json
+- Source repository: https://github.com/cosscom/coss
 
-The application isolates reusable UI primitives in `client/src/components/ui.jsx` so page-level feature code does not depend directly on the design-system implementation. The current environment did not complete external npm installation, so the exact current Coss registry source is intentionally documented as the final integration step rather than being misrepresented as already installed.
+## Repository implementation
 
-Before final evaluator submission, replace the local primitive implementations with the exact current Coss UI registry components permitted by the project brief and keep the page-level API stable.
+Proofly now uses Coss UI registry components for the shared Button, Card, Badge, Input, Textarea, and Spinner primitives under `client/src/registry/default/ui/`.
+
+The compatibility facade at `client/src/components/ui.jsx` routes existing page-level imports through those Coss primitives.
+
+Tailwind CSS v4 is configured through `@tailwindcss/vite`, with Coss semantic design tokens in `client/src/coss-theme.css`. `client/components.json` is configured for the official `@coss` registry.
+
+## Reproducible registry sync
+
+From `client/`:
+
+```bash
+npm install
+npm run ui:sync
+```
+
+The sync command uses the official shadcn CLI and Coss registry.
+
+## Source ownership
+
+Coss UI is designed around a source-owned, copy/paste model. Keeping the primitives in the repository makes the UI auditable and customizable while retaining the Coss component APIs and Base UI foundation.
