@@ -1,7 +1,4 @@
 # Proofly — Testimonial & Social Proof Collector
-
-Professional MERN implementation of **Project 05 — Testimonial & Social Proof Collector** from the supplied technical assessment.
-
 ## Stack
 - MongoDB + Mongoose
 - Express.js + Node.js
